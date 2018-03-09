@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2018 at 01:43 PM
+-- Generation Time: Mar 09, 2018 at 02:02 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 5.6.33
 
@@ -53,6 +53,14 @@ CREATE TABLE `category` (
   `category` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`catid`, `category`) VALUES
+(1, 'test'),
+(2, 'test1');
+
 -- --------------------------------------------------------
 
 --
@@ -61,7 +69,8 @@ CREATE TABLE `category` (
 
 CREATE TABLE `userinfo` (
   `userid` int(11) NOT NULL,
-  `canpany_name` varchar(100) NOT NULL,
+  `campany_name` varchar(100) NOT NULL,
+  `category` varchar(20) NOT NULL,
   `address` varchar(500) NOT NULL,
   `website` varchar(100) NOT NULL,
   `contact_person` varchar(50) NOT NULL,
@@ -73,10 +82,10 @@ CREATE TABLE `userinfo` (
 -- Dumping data for table `userinfo`
 --
 
-INSERT INTO `userinfo` (`userid`, `canpany_name`, `address`, `website`, `contact_person`, `email`, `phone`) VALUES
-(1, 'Dummy ', 'Dummy Address', 'https://www.dummy.com/', 'Dummy Person', 'dummy@dummy.com', '123456789'),
-(2, 'Test', 'Test Test', 'https://www.w3schools.com/', 'Test', 'aest@aa.aa', '123456877'),
-(3, 'something', 'something something', 'https://ionicframework.com', 'something ', 'something@something.com', '987654321');
+INSERT INTO `userinfo` (`userid`, `campany_name`, `category`, `address`, `website`, `contact_person`, `email`, `phone`) VALUES
+(1, 'Dummy ', '0', 'Dummy Address', 'https://www.dummy.com/', 'Dummy Person', 'dummy@dummy.com', '123456789'),
+(2, 'Test', '0', 'Test Test', 'https://www.w3schools.com/', 'Test', 'aest@aa.aa', '123456877'),
+(3, 'something', '0', 'something something', 'https://ionicframework.com', 'something ', 'something@something.com', '987654321');
 
 --
 -- Indexes for dumped tables
@@ -87,6 +96,12 @@ INSERT INTO `userinfo` (`userid`, `canpany_name`, `address`, `website`, `contact
 --
 ALTER TABLE `admininfo`
   ADD PRIMARY KEY (`adminid`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`catid`);
 
 --
 -- Indexes for table `userinfo`
@@ -103,6 +118,12 @@ ALTER TABLE `userinfo`
 --
 ALTER TABLE `admininfo`
   MODIFY `adminid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `catid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `userinfo`

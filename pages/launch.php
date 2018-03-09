@@ -93,7 +93,7 @@
                                 ?>
                                 <tr class="gradeX">
                                     <td class="center"><?php echo $row['userid']; ?></td>
-                                    <td class="center"><?php echo $row['canpany_name']; ?></td>
+                                    <td class="center"><?php echo $row['campany_name']; ?></td>
                                     <td class="center"><?php echo $row['address']; ?></td>
                                     <td class="center"><a href="<?php echo $row['website']; ?>"  target="_blank"  ><?php echo $row['website']; ?></a></td>
                                     <td class="center"><?php echo $row['contact_person']; ?></td>

@@ -1,5 +1,5 @@
 <?php
-    $sql = "SELECT `userid`,`canpany_name`,`address`,`website`,`contact_person`,`email`,`phone` FROM `userinfo`";
+    $sql = "SELECT `userid`,`campany_name`,`address`,`website`,`contact_person`,`email`,`phone` FROM `userinfo`";
     $result = mysqli_query($db, $sql);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $count = mysqli_num_rows($result);
