@@ -40,8 +40,7 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li class="divider"></li>
-                        <li><a href="includephp/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                       <li><a href="includephp/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                 </li>
@@ -124,9 +123,6 @@
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
     <script src="../dist/common/sb-admin-2.js"></script>
 
-    <!-- toast message  -->
-    <link href="../dist/toast/jquery.toast.min.css" rel="stylesheet">
-    <script src="../dist/toast/jquery.toast.min.js"></script>
     <!-- DataTables JavaScript -->
     <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
@@ -138,16 +134,6 @@
                 responsive: true
             });
         });
-    
-        function testtoast(){
-            $.toast({
-                heading: 'Information',
-                text: 'Loaders are enabled by default. Use `loader`, `loaderBg` to change the default behavior',
-                icon: 'info',
-                loader: true,        // Change it to false to disable loader
-                loaderBg: '#9EC600'  // To change the background
-            })
-        }
     </script>
 </body>
 </html>

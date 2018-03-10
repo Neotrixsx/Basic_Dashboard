@@ -1,5 +1,6 @@
 <?php
     include 'session.php';
+    include 'includephp/fetchcat.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,11 +18,7 @@
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="../dist/common/sb-admin-2.css" rel="stylesheet">
     <link href="../dist/common/style.css" rel="stylesheet" type="text/css">
-      <!-- DataTables CSS -->
-      <link href="../../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
-
-<!-- DataTables Responsive CSS -->
-<link href="../../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+   
 </head>
 <body>
     <div id="wrapper">
@@ -41,7 +38,6 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li class="divider"></li>
                         <li><a href="includephp/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
@@ -74,41 +70,43 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form role="form">
+                                    <form role="form"  method="post">
                                         <div class="form-group">
                                             <label>Canpany Name</label>
-                                            <input class="form-control" type="text" placeholder="Enter text">
+                                            <input class="form-control" name="cname" type="text" placeholder="Enter Canpany Name">
                                         </div>
                                         <div class="form-group">
                                             <label>Category</label>
-                                            <select class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                            <select class="form-control" name="ccat" >
+                                            <?php  
+                                                while ( $row = mysqli_fetch_array($catinfo, MYSQLI_ASSOC)){
+                                                ?>
+                                                 <option id="<?php echo $row['category']; ?>"><?php echo $row['category']; ?></option>
+                                                <?php  
+                                                }
+                                                ?>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Addressr</label>
-                                            <textarea class="form-control" rows="3" placeholder="Enter text"></textarea>
+                                            <textarea class="form-control" name="cadd" rows="3" placeholder="Enter Addressr"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Website</label>
-                                            <input class="form-control" type="text"  placeholder="Enter text">
+                                            <input class="form-control" name="cweb" type="text"  placeholder="Enter Website">
                                         </div>
                                         <div class="form-group">
                                             <label>Contact Person</label>
-                                            <input class="form-control" type="text"  placeholder="Enter text">
+                                            <input class="form-control" name="cper" type="text"  placeholder="Enter text">
                                         </div>
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input class="form-control" type="email"  placeholder="Enter text">
+                                            <input class="form-control" name="cmail" type="email"  placeholder="Enter text">
                                         </div>
                                         <div class="form-group">
                                             <label>Phone No.</label>
-                                            <input class="form-control" type="tel"  placeholder="Enter text">
+                                            <input class="form-control" name="cphone" type="tel"  placeholder="Enter text">
                                         </div>
                                         <button type="submit" class="btn btn-default">Submit Button</button>
                                         <button type="reset" class="btn btn-default">Reset Button</button>
@@ -136,18 +134,9 @@
     <!-- toast message  -->
     <link href="../dist/toast/jquery.toast.min.css" rel="stylesheet">
     <script src="../dist/toast/jquery.toast.min.js"></script>
-
-    <!-- DataTables JavaScript -->
-    <script src="../../vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="../../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-    <script src="../../vendor/datatables-responsive/dataTables.responsive.js"></script>
-     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-     <script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
-        });
-    });
-    </script>
+    <script src="../dist/toast/jquery.toast.messages.js"></script>   
 </body>
 </html>
+<?php
+include 'includephp/insrtdata.php';
+?>

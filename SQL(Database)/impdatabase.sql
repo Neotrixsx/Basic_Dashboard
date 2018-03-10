@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2018 at 02:02 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 5.6.33
+-- Generation Time: Mar 10, 2018 at 05:54 AM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -58,8 +58,7 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`catid`, `category`) VALUES
-(1, 'test'),
-(2, 'test1');
+(1, 'demo');
 
 -- --------------------------------------------------------
 
@@ -83,9 +82,7 @@ CREATE TABLE `userinfo` (
 --
 
 INSERT INTO `userinfo` (`userid`, `campany_name`, `category`, `address`, `website`, `contact_person`, `email`, `phone`) VALUES
-(1, 'Dummy ', '0', 'Dummy Address', 'https://www.dummy.com/', 'Dummy Person', 'dummy@dummy.com', '123456789'),
-(2, 'Test', '0', 'Test Test', 'https://www.w3schools.com/', 'Test', 'aest@aa.aa', '123456877'),
-(3, 'something', '0', 'something something', 'https://ionicframework.com', 'something ', 'something@something.com', '987654321');
+(1, 'demo company', 'demo', 'demo', 'https://demo.com', 'demo', 'demo@demo.com', '123456789');
 
 --
 -- Indexes for dumped tables
@@ -118,19 +115,16 @@ ALTER TABLE `userinfo`
 --
 ALTER TABLE `admininfo`
   MODIFY `adminid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `catid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `catid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `userinfo`
 --
 ALTER TABLE `userinfo`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-COMMIT;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
