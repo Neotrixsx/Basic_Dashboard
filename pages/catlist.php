@@ -1,6 +1,6 @@
 <?php
     include 'session.php';
-    include "includephp/fetchusers.php";
+    include "includephp/fetchlist.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,10 +49,10 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="adddata"><i class="fa fa-plus-circle   fa-fw"></i> Add Information</a>
+                            <a href="launch"><i class="fa fa-arrow-left  fa-fw"></i> Home</a>
                         </li>
                         <li>
-                            <a href="catlist"><i class="fa fa-star  fa-fw"></i> Categories</a>
+                            <a href="addcat"><i class="fa fa-plus-circle   fa-fw"></i> Add Category</a>
                         </li>
                     </ul>
                 </div>
@@ -62,8 +62,9 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Applications <button onclick="reloadpage()"  style="float: right;" type="button" class="btn btn-success btn-circle"><i class="fa fa-refresh "></i>
-                            </button> </h1>
+                        <h1 class="page-header">Category <button onclick="reloadpage()"  style="float: right;" type="button" class="btn btn-success btn-circle"><i class="fa fa-refresh "></i>
+                            </button>
+                        </h1>
                     </div>
                 </div>
                 <div class="row">
@@ -73,7 +74,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            DataTables Advanced Tables
+                            Category List
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -81,29 +82,19 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Company Name</th>
-                                        <th>Address</th>
-                                        <th>Website</th>
-                                        <th>Contact Perason</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
+                                        <th>Category Name</th>
                                         <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <?php  
                                 // while ($row = mysql_fetch_assoc($userinfo)){
-                                while ( $row = mysqli_fetch_array($userinfo, MYSQLI_ASSOC)){
+                                while ( $row = mysqli_fetch_array($catinfo, MYSQLI_ASSOC)){
                                 ?>
-                                <tr class="gradeX">
-                                    <td class="center"><?php echo $row['userid']; ?></td>
-                                    <td class="center"><?php echo $row['campany_name']; ?></td>
-                                    <td class="center"><?php echo $row['address']; ?></td>
-                                    <td class="center"><a href="<?php echo $row['website']; ?>"  target="_blank"  ><?php echo $row['website']; ?></a></td>
-                                    <td class="center"><?php echo $row['contact_person']; ?></td>
-                                    <td class="center"><a href="mailto:<?php echo $row['email']; ?>" target="_blank" ><?php echo $row['email']; ?></a></td>
-                                    <td class="center"><a href="tel:<?php echo $row['phone']; ?>"><?php echo $row['phone']; ?></a></td>
-                                    <td class="center"><a onclick="delinfo(<?php echo $row['userid']; ?>,'<?php echo $row['campany_name']; ?>')"><i class="fa fa-times fa-fw"></i></a></td>
+                                <tr class="gradeX">	
+                                    <td class="center"><?php echo $row['catid']; ?></td>
+                                    <td class="center"><?php echo $row['category']; ?></td>
+                                    <td class="center"><a onclick="delinfo(<?php echo $row['catid']; ?>, '<?php echo $row['category']; ?>')"><i class="fa fa-times fa-fw"></i></a></td>
                                 </tr>
                                     <?php  
                                }
@@ -134,12 +125,12 @@
     <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 
     <!-- toast message  -->
     <link href="../dist/toast/jquery.toast.min.css" rel="stylesheet">
     <script src="../dist/toast/jquery.toast.min.js"></script>
-    <script src="../dist/toast/jquery.toast.messages.js"></script>  
+    <script src="../dist/toast/jquery.toast.messages.js"></script>   
 
      <script>
         $(document).ready(function() {
@@ -151,5 +142,5 @@
 </body>
 </html>
 <?php
-    include "includephp/deleteinfo.php";
+    include "includephp/deletecat.php";
 ?>

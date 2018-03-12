@@ -1,6 +1,5 @@
 <?php
     include 'session.php';
-    include 'includephp/fetchlist.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +48,9 @@
                        <li>
                             <a href="launch"><i class="fa fa-arrow-left  fa-fw"></i> Home</a>
                         </li>
+                        <li>
+                            <a href="catlist"><i class="fa fa-list-alt  fa-fw"></i> Category List</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -56,7 +58,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Add Information</h1>
+                    <h1 class="page-header">Add Category</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -65,61 +67,16 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Note: All field are mandatory.
+                           Note: All field are mandatory.
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <form role="form"  method="post">
                                         <div class="form-group">
-                                            <label>Canpany Name</label>
-                                            <input class="form-control" name="cname" type="text" placeholder="Enter Canpany Name">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Category</label>
-                                            <select class="form-control" name="ccat" >
-                                            <?php  
-                                                while ( $row = mysqli_fetch_array($catinfo, MYSQLI_ASSOC)){
-                                                ?>
-                                                 <option id="<?php echo $row['category']; ?>"><?php echo $row['category']; ?></option>
-                                                <?php  
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Country</label>
-                                            <select class="form-control" name="ccountry" >
-                                            <?php  
-                                                while ( $row = mysqli_fetch_array($countriecatinfo, MYSQLI_ASSOC)){
-                                                ?>
-                                                 <option id="<?php echo $row['name']; ?>"><?php echo $row['name']; ?></option>
-                                                <?php  
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Addressr</label>
-                                            <textarea class="form-control" name="cadd" rows="3" placeholder="Enter Addressr"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Website</label>
-                                            <input class="form-control" name="cweb" type="text"  placeholder="Enter Website">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Contact Person</label>
-                                            <input class="form-control" name="cper" type="text"  placeholder="Enter text">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input class="form-control" name="cmail" type="email"  placeholder="Enter text">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Phone No.</label>
-                                            <input class="form-control" name="cphone" type="tel"  placeholder="Enter text">
-                                        </div>
+                                            <label>Category Name</label>
+                                            <input class="form-control" name="ccat" type="text" placeholder="Enter Category Name">
+                                        </div>                                       
                                         <button type="submit" class="btn btn-default">Submit Button</button>
                                         <button type="reset" class="btn btn-default">Reset Button</button>
                                     </form>
@@ -150,5 +107,5 @@
 </body>
 </html>
 <?php
-include 'includephp/insrtdata.php';
+include 'includephp/insrtcat.php';
 ?>

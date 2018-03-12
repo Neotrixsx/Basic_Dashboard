@@ -3,6 +3,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $cname = mysqli_real_escape_string($db, $_POST['cname']);
 $ccat = mysqli_real_escape_string($db, $_POST['ccat']);
+$ccountry = mysqli_real_escape_string($db, $_POST['ccountry']);
 $cadd = mysqli_real_escape_string($db, $_POST['cadd']);
 $cweb = mysqli_real_escape_string($db, $_POST['cweb']);
 $cper = mysqli_real_escape_string($db, $_POST['cper']);
@@ -16,7 +17,8 @@ $cphone = mysqli_real_escape_string($db, $_POST['cphone']);
     if ($count >= 1) {
         echo "<script type='text/javascript'> errortoast(); </script>";    
     } else if ($count == 0) {
-        $insertsql = "INSERT INTO `userinfo` (`campany_name`, `category`, `address`, `website`, `contact_person`, `email`, `phone`) VALUES ( '$cname', '$ccat', '$cadd', '$cweb', '$cper', '$cmail', '$cphone')";
+        $insertsql = "INSERT INTO `userinfo` ( `campany_name`, `category`, `countries`, `address`, `website`, `contact_person`, `email`, `phone`, `status`) VALUES ('$cname', '$ccat', '$ccountry', '$cadd', '$cweb', '$cper', '$cmail', '$cphone', 1);";
+        echo $insertsql;
         $inserresult = mysqli_query($db, $insertsql);
         if($inserresult){         
             echo "<script type='text/javascript'> successtoast(); </script>";
